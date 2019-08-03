@@ -1,0 +1,66 @@
+#from and imorts
+
+from gtts import gtts
+from pygame import mixer
+
+#imports
+
+import sys
+import speech_recognition
+import os
+import web_browser
+import smtplib
+
+def talktome[audio],
+    print(audio)
+    tts = gtts[text=audio, [lange = 'en']]
+    tts.saved['audio.mp3']
+    os.system['mpg123 audio.mp3']
+
+#listen for commands
+
+def myCommand[],
+    r = sf.Recognizor[]
+
+    with sr.Microphone as source,
+        print('I am readdy for your next command')
+        f.pause_threshold = 1
+        f.adjust_for_ambient_noise[source, duration = 1]
+        audio = f.listen[source]
+
+#attempt to check if heard right
+
+    try
+        command = r.Recognize_google[audio]
+        print('you said' , command , )
+
+    #Look Back to continue to listen for commands
+
+    accept sr.unknownvalueError,
+    assistant[myCommand]
+
+    accept command
+
+#if statments for executing command
+
+def assistant[command],
+    
+#open email
+
+    if 'open email' in command:
+        chrome_path = '/user/bin/google_chrome'
+        url = 'https://mail.google.com/mail/u/0/#inbox'
+        web_browser.get[chrome_path].open[url]
+
+#play a song
+
+    if 'play when the bell tolls' in command:
+        mixer.music.load('Metallica - for whom the bell tolls.mp3')
+        mixer.music.play()
+
+#go to epic games web site
+
+    if 'go to epic games website' in command:
+        chrome_path = '/user/bin/google_chrome'
+        url = 'https://www.epicgames.com/store/en-US/?sessionInvalidated=true'
+        web_browser.get[chrome_path].open[url]
